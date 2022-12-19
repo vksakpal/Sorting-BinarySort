@@ -13,10 +13,27 @@ for (int i = 1 ; i <= maxNumber;i++)
     numbers.Add(number);
 }
 
-for(int i = 1 ; i <= numbers.Count ;i ++)
+Console.WriteLine("Sorting Started");
+
+for(int i = 1 ; i < numbers.Count ; ++i)
 {
-    Console.WriteLine(numbers[i-1]);
+    int key = numbers[i];
+    int j = i - 1;
+
+    while(j >=1 && numbers[j] > key)
+    {
+        numbers[j + 1] = numbers[j];
+        j--;
+    }
+    numbers[j + 1] = key;    
 }
+
+for (int i = 1; i < numbers.Count; ++i)
+{
+    Console.WriteLine(numbers[i]);
+}
+
+
 
 Console.ReadLine();
 
