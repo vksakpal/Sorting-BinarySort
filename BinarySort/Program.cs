@@ -7,33 +7,48 @@ int maxNumber = Convert.ToInt32(Console.ReadLine());
 List<int> numbers = new List<int>();
 Random random = new Random();
 
-for (int i = 1 ; i <= maxNumber;i++)
+for (int i = 1; i <= maxNumber; i++)
 {
     var number = random.Next(1, maxNumber);
     numbers.Add(number);
 }
 
-Console.WriteLine("Sorting Started");
+Console.WriteLine("====================");
+Console.WriteLine("Select Algorithm:");
+Console.WriteLine("1 => Insertion Sort");
+Console.WriteLine("2 => Merge Sort");
+Console.WriteLine("3 => Quick Sort");
 
-for(int i = 1 ; i < numbers.Count ; ++i)
+int option = Convert.ToInt32(Console.ReadLine());
+
+if (option == 1)
 {
-    int key = numbers[i];
-    int j = i - 1;
+    Console.WriteLine("Sorting Started");
 
-    while(j >=1 && numbers[j] > key)
+    for (int i = 1; i < numbers.Count; ++i)
     {
-        numbers[j + 1] = numbers[j];
-        j--;
+        int key = numbers[i];
+        int j = i - 1;
+
+        while (j >= 1 && numbers[j] > key)
+        {
+            numbers[j + 1] = numbers[j];
+            j--;
+        }
+        numbers[j + 1] = key;
     }
-    numbers[j + 1] = key;    
-}
 
-for (int i = 1; i < numbers.Count; ++i)
+    for (int i = 1; i < numbers.Count; ++i)
+    {
+        Console.WriteLine(numbers[i]);
+    }
+}
+else
 {
-    Console.WriteLine(numbers[i]);
+    Console.WriteLine("Algorithm not supported yet...");
 }
-
-
 
 Console.ReadLine();
+
+
 
